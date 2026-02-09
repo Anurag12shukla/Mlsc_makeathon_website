@@ -1,0 +1,171 @@
+:root {
+    --bg-color-start: #1a0b2e;
+    --bg-color-end: #0f0518;
+    --highlight: #aaddff;
+    --dim-white: rgba(255, 255, 255, 0.4);
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: radial-gradient(ellipse at center, var(--bg-color-start) 0%, var(--bg-color-end) 100%);
+    font-family: sans-serif;
+}
+
+/* Background Image */
+.background-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: url('background.png') no-repeat center center;
+    background-size: cover;
+}
+
+/* Shared Rings Container Style */
+.rings-container {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.8;
+    /* Slight transparency for background blending */
+}
+
+/* Ring Set 1: The Navigator (Top Right) */
+.ring-set-1 {
+    top: 5%;
+    right: 5%;
+    width: 45vmin;
+    height: 45vmin;
+}
+
+/* Ring Set 2: The Reactor (Center Left) */
+.ring-set-2 {
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    /* Centered vertically on the left */
+    width: 70vmin;
+    height: 70vmin;
+}
+
+/* Ring Set 3: The Orbital (Bottom Right) */
+.ring-set-3 {
+    bottom: 5%;
+    right: 15%;
+    width: 55vmin;
+    height: 55vmin;
+}
+
+/* Base Styles updated for reusability */
+.ring-line {
+    stroke: var(--highlight);
+    stroke-width: 1;
+}
+
+/* SVG Styling */
+.cosmic-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+/* Ring Groups - Animation Anchors */
+.ring-group {
+    transform-origin: 500px 500px;
+}
+
+/* Specific Animations - ACTIVE */
+.inner-ring {
+    animation: spin 20s linear infinite;
+}
+
+.middle-ring {
+    animation: spin 35s linear infinite reverse;
+}
+
+.outer-ring {
+    animation: spin 60s linear infinite;
+}
+
+/* Graphic Styles */
+.core-circle {
+    fill: #fff;
+    filter: drop-shadow(0 0 5px #fff);
+}
+
+.core-outer {
+    fill: none;
+    stroke: var(--highlight);
+    stroke-width: 1;
+}
+
+.ring-dashed-small {
+    fill: none;
+    stroke: var(--dim-white);
+    stroke-width: 2;
+    stroke-dasharray: 10 10;
+}
+
+.cross-hairs {
+    fill: none;
+    stroke: var(--highlight);
+    stroke-width: 1;
+}
+
+.ring-solid-thin {
+    fill: none;
+    stroke: var(--dim-white);
+    stroke-width: 1;
+}
+
+.ring-dashed-medium {
+    fill: none;
+    stroke: var(--highlight);
+    stroke-width: 2;
+    stroke-dasharray: 50 20;
+    stroke-opacity: 0.6;
+}
+
+.ring-arc {
+    stroke: #fff;
+    stroke-opacity: 0.8;
+}
+
+.ring-solid-thick {
+    fill: none;
+    stroke: var(--dim-white);
+    stroke-width: 4;
+}
+
+.ring-dashed-large {
+    fill: none;
+    stroke: var(--highlight);
+    stroke-width: 1;
+    stroke-dasharray: 5 5;
+}
+
+.orbiter {
+    fill: #fff;
+    filter: drop-shadow(0 0 3px #fff);
+}
+
+/* Keyframes */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
